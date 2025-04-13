@@ -16,8 +16,8 @@ public class HapticCylinder : HapticPrimitiveShape
 
         //Chai3D cylinder position is at bottom
         //Unity cylinder position at middle
-        //Apply the offset.
-        Vector3 offset = new Vector3(0, -this.transform.localPosition.y, 0);
+        //Apply the offset according to its transform up vector to account for rotations
+         Vector3 offset = -this.transform.up * this.transform.localScale.y; 
         obj.SetLocalPosition(this.transform.localPosition + offset);
     }
 
